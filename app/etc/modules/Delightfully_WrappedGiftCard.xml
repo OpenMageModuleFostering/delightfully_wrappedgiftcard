@@ -1,0 +1,21 @@
+<?xml version="1.0"?>
+<!-- 
+/**
+ * @category   Delightfully
+ * @package    Delightfully_WrappedGiftCard
+ * @author     James Barabas
+ * @license    http://opensource.org/licenses/osl-3.0.php  Open Software License (OSL 3.0)
+ */
+ -->
+<config>
+    <modules>
+        <Delightfully_WrappedGiftCard>
+            <active>true</active>
+            <codePool>community</codePool>
+            <depends>
+	            <!--This dependency is currently needed to update product page for Magestore Giftvoucher, but should be removed if no magestore giftvoucher extension present. -->
+	            <Magestore_Giftvoucher />
+            </depends>
+        </Delightfully_WrappedGiftCard>
+    </modules>
+</config> 

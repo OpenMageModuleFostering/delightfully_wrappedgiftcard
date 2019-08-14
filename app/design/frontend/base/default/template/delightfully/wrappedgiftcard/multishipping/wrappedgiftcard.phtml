@@ -1,0 +1,132 @@
+<?php
+/**
+ * Magento
+ *
+ * NOTICE OF LICENSE
+ *
+ * Portions of this source file are subject to the Academic Free License (AFL 3.0)
+ * that is bundled with Magento Community Edition in the file LICENSE_AFL.txt.
+ * It is also available through the world-wide-web at this URL:
+ * http://opensource.org/licenses/afl-3.0.php
+ * If you did not receive a copy of the license and are unable to
+ * obtain it through the world-wide-web, please send an email
+ * to license@magentocommerce.com so we can send you a copy immediately.
+ *
+ * DISCLAIMER
+ *
+ * Do not edit or add to this file if you wish to upgrade Magento to newer
+ * versions in the future. If you wish to customize Magento for your
+ * needs please refer to http://www.magentocommerce.com for more information.
+ *
+ * @category    design
+ * @package     base_default
+ * @copyright   Copyright (c) 2012 Magento Inc. (http://www.magentocommerce.com)
+ * @license     http://opensource.org/licenses/afl-3.0.php  Academic Free License (AFL 3.0)
+ */
+?>
+<?php $totalWrapped = 0;?>
+ 
+<div class="multiple-checkout">
+    <div class="page-title">
+        <h1><?php echo $this->__('Order Success') ?></h1>
+    </div>
+    <h2 class="sub-title"><?php echo $this->__('Thank you for your purchase!') ?></h2>
+    	<script>
+	var _gaq = _gaq || [];
+	_gaq.push(["_setAccount", "UA-43140719-1"]);
+	_gaq.push(["_trackPageview"]);
+	</script>
+    <p><?php echo $this->__('We are processing your order and you will soon receive an email with details of the order. Once the order has shipped you will receive another email with a link to track its progress.') ?></p>
+    <?php if(!($_orderIds = $this->getOrderIds(true))) {/*?>NO ORDER FOUND. USING DEFAULT.<?php $_orderIds['864'] = '100050793';*/}?>
+    <?php if($_orderIds): ?>
+    <p>
+        <?php $flag = false ?>
+        <?php echo $this->__('Your order number is ') ?>
+        <?php foreach ($_orderIds as $orderId=>$incrementId): ?>
+            <?php if ($flag): ?>
+                <?php echo ', ' ?>
+            <?php endif; ?>
+            <?php $flag = true ?>
+            <a href="<?php echo $this->getViewOrderUrl($orderId) ?>"><?php echo $incrementId ?></a>
+            
+            <!-- -->
+
+<?php 
+
+ $order = $this->getOrderByIncrementId($incrementId);
+ $products = $order->getAllVisibleItems();
+
+
+$prodCount = count($products);
+$count=0; 
+$prescan=0;
+$transaction = $incrementId;
+
+$dhelper = Mage::helper('delightfully_wrappedgiftcard');
+
+$prescan = $this->countWrappedCardsInOrderItems($products);
+$totalWrapped = $totalWrapped + $prescan; 
+
+
+if($prescan > 0) {
+  	echo '<div class="page-title"></div> <h2>This order includes personalized gift wrap. Continue here:<br>';
+  	?><script>
+  		var _gaq = _gaq || [];
+  		_gaq.push(["_setAccount", "UA-43140719-1"]);
+  		_gaq.push(["_trackEvent", 'GiftCardPurchased', 'ShowWrapButton', 'MultishipGiftVoucher']);
+  		</script>
+  		<?php 
+	if($prescan > 1) {
+	  echo 'Be sure to customize each of your gifts by returning to this window. We\'ll leave it open for you.<br>';
+	}
+	
+	echo '</h2><br>';
+		foreach ( $products as $product ) {
+		$countThisItem = $this->countGiftCodes($product);
+		for($codeInItem=0;$codeInItem<$countThisItem;$codeInItem++) {
+			$params = $this->getAPIParamsForItem($product,$transaction,$count,$codeInItem);
+			if(count($params) > 0) {
+				$dhelper->makeAuthorizeCallWithParams($params);
+		
+				$wrapurl = $dhelper->makeWrapURL($params);
+			
+				if($prescan > 1) {
+					echo 'Your gift for ' . 	$params['recipient'];
+ 					if($countThisItem > 1) {
+						 echo ' ('. ($codeInItem + 1) . ' of ' . $countThisItem . ')';
+					}
+ 					echo ': <br>';
+				}
+			
+				echo '<button type="button" class="button" title="Wrap your gift" onclick="window.open(\'';
+				echo $wrapurl;
+				echo '\');_gaq = _gaq || [];_gaq.push([\'_setAccount\', \'UA-43140719-1\']);_gaq.push([\'_trackEvent\', \'GiftCardPurchased\', \'ClickWrapLink\', \'GiftVoucher\']);"><span><span>Continue to gift Wrap</span></span></button><br>';
+						
+				if($prescan > 1) {
+				  echo '<br><br>';
+				}
+				$count += 1;
+		
+			}
+		}
+	}
+}
+?>
+            
+            
+            
+            <!--  -->
+        <?php endforeach; ?>
+    </p>
+    <?php endif; ?>
+    <?php echo $this->getChildHtml() ?>
+</div>
+
+
+<?php if ($totalWrapped < 1):?>
+<div class="buttons-set">
+        <button type="button" title="<?php echo $this->__('Continue Shopping') ?>" class="button" onclick="setLocation('<?php echo $this->getContinueUrl() ?>')"><span><span><?php echo $this->__('Continue Shopping') ?></span></span></button>
+    </div>
+<?php endif?>
+<?php 
+

@@ -1,0 +1,130 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<config>
+	<modules>
+		<Delightfully_WrappedGiftCard>
+			<version>0.1.2</version>
+			<codePool>community</codePool>
+		</Delightfully_WrappedGiftCard>
+	</modules>
+	<global>
+		<helpers>
+			<delightfully_wrappedgiftcard>
+				<class>Delightfully_WrappedGiftCard_Helper</class>
+			</delightfully_wrappedgiftcard>
+			<giftvoucher>
+				<rewrite>
+					<data>Delightfully_WrappedGiftCard_Helper_Giftvoucher_Data</data>
+				</rewrite>
+			</giftvoucher>
+		</helpers>
+		<blocks>
+			<delightfully_wrappedgiftcard>
+				<class>Delightfully_WrappedGiftCard_Block</class>
+			</delightfully_wrappedgiftcard>
+			<catalog>
+				<giftvoucher>
+					<rewrite>
+						<product_view>Delightfully_WrappedGiftCard_Block_Product_View</product_view>
+					</rewrite>
+				</giftvoucher>
+			</catalog>
+			<cart>
+				<giftvoucher>
+					<rewrite>
+						<item>Delightfully_WrappedGiftCard_Block_Cart_Item</item>
+					</rewrite>
+				</giftvoucher>
+			</cart>
+<!--
+			<adminhtml>
+				<rewrite>
+					<giftvoucher_grid>Delightfully_WrappedGiftCard_Block_Adminhtml_Giftvoucher_Grid</giftvoucher_grid>
+					<giftvoucher>Delightfully_WrappedGiftCard_Block_Adminhtml_Giftvoucher</giftvoucher>
+				</rewrite>
+			</adminhtml>
+-->
+		</blocks>
+		<models>
+			<delightfully_wrappedgiftcard>
+				<class>Delightfully_WrappedGiftCard_Model</class>
+			</delightfully_wrappedgiftcard>
+			<enterprise_giftcard>
+				<rewrite>
+					<observer>Delightfully_WrappedGiftCard_Model_Observer</observer>
+				</rewrite>
+			</enterprise_giftcard>
+			<giftvoucher>
+				<rewrite>
+					<giftvoucher>Delightfully_WrappedGiftCard_Model_Giftvoucher</giftvoucher>
+					<observer>Delightfully_WrappedGiftCard_Model_Giftvoucher_Observer</observer>
+					<!--<product_price>Delightfully_WrappedGiftCard_Model_Giftvoucher_Price</product_price> -->
+				</rewrite>
+			</giftvoucher>
+		</models>
+		<catalog>
+        	<product>
+        		<type>
+	
+        			<giftvoucher translate="label" module="giftvoucher">
+        				<label>Gift Card</label>
+        				<model>giftvoucher/product_type</model>
+        				<price_model>delightfully_wrappedgiftcard/giftvoucher_price</price_model>
+        				<index_data_retreiver>catalogindex/data_simple</index_data_retreiver>
+        				<is_qty>1</is_qty>
+        			</giftvoucher>
+	
+        		</type>
+        	</product>
+	        </catalog>
+	</global>
+	<default>
+		<delightfully_options>
+			<account>
+				<merchant>testing</merchant>
+				<key>Y9Y7ZXjaYagP5CpM</key>
+			</account>
+			<product>
+				<wrap_price>0.00</wrap_price>
+				<gift_description>gift credit.</gift_description>
+			</product>
+		</delightfully_options>
+	</default>
+	<frontend>
+		<layout>
+			<updates>
+				<wrappedgiftcard>
+					<file>delightfully/wrappedgiftcard.xml</file>
+				</wrappedgiftcard>
+			</updates>
+		</layout>
+	</frontend>
+    <adminhtml>
+    	<layout>
+    	
+			<updates>
+				<wrappedgiftcard>
+					<file>delightfully/wrappedgiftcard.xml</file>					
+				</wrappedgiftcard>
+			</updates>
+	</layout>
+	<acl>
+            <resources>
+                <admin>
+                    <children>
+                        <system>
+                            <children>
+                                <config>
+                                    <children>
+                                        <delightfully_options>
+                                            <title>Delightfully Module Section</title>
+                                        </delightfully_options>
+                                    </children>
+                                </config>
+                            </children>
+                        </system>
+                    </children>
+                </admin>
+            </resources>
+        </acl>
+    </adminhtml>
+</config>

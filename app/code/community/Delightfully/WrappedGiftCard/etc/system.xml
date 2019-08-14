@@ -1,0 +1,83 @@
+<config>
+    <tabs>
+        <delightfullyconfig translate="label" module="delightfully_wrappedgiftcard">
+            <label>Delightfully</label>
+            <sort_order>99999</sort_order>
+        </delightfullyconfig>
+    </tabs> 
+    <sections>
+        <delightfully_options translate="label" module="delightfully_wrappedgiftcard">
+            <label>Delightfully Configuration</label>
+            <tab>delightfullyconfig</tab>
+            <frontend_type>text</frontend_type>
+            <sort_order>1000</sort_order>
+            <show_in_default>1</show_in_default>
+            <show_in_website>1</show_in_website>
+            <show_in_store>1</show_in_store>                    
+            <groups>
+                <account translate="label">
+                    <label>Delightfully Account</label>
+                    <frontend_type>text</frontend_type>
+                    <sort_order>1</sort_order>
+                    <show_in_default>1</show_in_default>
+                    <show_in_website>1</show_in_website>
+                    <show_in_store>1</show_in_store>   
+                    <fields>             
+                    	<merchant>
+				            <label>Your Delightfully username</label>
+				            <frontend_type>text</frontend_type>
+				            <sort_order>1</sort_order>
+				            <show_in_default>1</show_in_default>
+				            <show_in_website>1</show_in_website>
+				            <show_in_store>1</show_in_store>                    
+				        </merchant>
+				        <key>
+				            <label>Your Delightfully API key</label>
+				            <frontend_type>text</frontend_type>
+				            <sort_order>2</sort_order>
+				            <show_in_default>1</show_in_default>
+				            <show_in_website>1</show_in_website>
+				            <show_in_store>1</show_in_store>                    
+				        </key>
+			        </fields>
+
+                </account>
+                <product translate="label">
+                    <label>Product Configuration</label>
+                    <frontend_type>text</frontend_type>
+                    <sort_order>2</sort_order>
+                    <show_in_default>1</show_in_default>
+                    <show_in_website>1</show_in_website>
+                    <show_in_store>1</show_in_store>   
+           	    	<fields>
+				        <wrap_price>
+				            <label>Price for Delightfully Wrapping</label>
+				            <frontend_type>text</frontend_type>
+				            <sort_order>1</sort_order>
+				            <show_in_default>1</show_in_default>
+				            <show_in_website>1</show_in_website>
+				            <show_in_store>1</show_in_store>                    
+				        </wrap_price>
+				        <redeem_url>
+				            <label>URL to provide to gift recipient for gift redemption (optional)</label>
+				            <frontend_type>text</frontend_type>
+				            <sort_order>1</sort_order>
+				            <show_in_default>1</show_in_default>
+				            <show_in_website>1</show_in_website>
+				            <show_in_store>1</show_in_store>                    
+				        </redeem_url>
+				        <gift_description>
+				            <label>Description of gift credit. Gift ammount will be prepended to this string (for example, ``gift credit for Mystore.com.`` will appear as ``$50.00 gift credit for Mystore.com.``</label>
+				            <frontend_type>text</frontend_type>
+				            <sort_order>1</sort_order>
+				            <show_in_default>1</show_in_default>
+				            <show_in_website>1</show_in_website>
+				            <show_in_store>1</show_in_store>                    
+				        </gift_description>
+				    </fields>               
+                </product>
+
+            </groups>
+        </delightfully_options>
+    </sections> 
+</config>

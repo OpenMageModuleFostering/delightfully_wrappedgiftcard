@@ -1,0 +1,49 @@
+<?xml version="1.0"?>
+<layout version="0.1.2">
+	<checkout_onepage_success>
+		<remove name="checkout.success"/>
+		<reference name="head">
+			<action method="addCss">
+				<stylesheet>delightfully/wrappedgiftcard/css/wrappedgiftcard.css</stylesheet>
+			</action>
+		</reference>
+		<reference name="content">
+			<block name="delightfully.wrappedgiftcard" template="delightfully/wrappedgiftcard/wrappedgiftcard.phtml" type="delightfully_wrappedgiftcard/wrappedgiftcard"/>
+		</reference>
+	</checkout_onepage_success>
+	<checkout_multishipping_success>
+		<remove name="checkout_success"/>
+		<reference name="head">
+			<action method="addCss">
+				<stylesheet>delightfully/wrappedgiftcard/css/wrappedgiftcard.css</stylesheet>
+			</action>
+		</reference>
+		<reference name="content">
+			<block name="delightfully.wrappedgiftcard" template="delightfully/wrappedgiftcard/multishipping/wrappedgiftcard.phtml" type="delightfully_wrappedgiftcard/multishipping_wrappedgiftcard"/>
+		</reference>
+	</checkout_multishipping_success>
+	<PRODUCT_TYPE_giftvoucher translate="label">
+		<label>Catalog Product View (Gift Card)</label>
+		<reference name="product.info">
+			<block as="product_type_data" name="product.info.giftvoucher" template="delightfully/wrappedgiftcard/product/view.phtml" type="delightfully_wrappedgiftcard/product_view"/>
+		</reference>
+	</PRODUCT_TYPE_giftvoucher>
+	<checkout_cart_index>
+		<reference name="checkout.cart">
+			<action method="addItemRender">
+				<type>giftvoucher</type>
+				<block>delightfully_wrappedgiftcard/cart_item</block>
+				<template>checkout/cart/item/default.phtml</template>
+			</action>
+		</reference>
+	</checkout_cart_index>
+	<checkout_onepage_review>
+		<reference name="root">
+			<action method="addItemRender">
+				<type>giftvoucher</type>
+				<block>delightfully_wrappedgiftcard/cart_item</block>
+				<template>checkout/onepage/review/item.phtml</template>
+			</action>
+		</reference>
+	</checkout_onepage_review>
+</layout>

@@ -1,0 +1,64 @@
+<?xml version="1.0"?>
+<package>
+    <name>Delightfully_WrappedGiftCard</name>
+    <version>0.1.15</version>
+    <stability>stable</stability>
+    <license uri="http://opensource.org/licenses/osl-3.0.php">OSL v3.0</license>
+    <channel>community</channel>
+    <extends/>
+    <summary>Add digital wrapping to gift cards using Delightfully</summary>
+    <description>Supports gift wrap after purchase for both products with SKU containing the string "DLYGC" (used for Enterprise Gift Cards. e.g. "DLYGC_holiday".) and for products purchased using the Magestore GiftVoucher extension.&#xD;
+&#xD;
+For Magento Enterprise,&#xD;
+Gift cards with matching SKU will not send email to the gift recipient but instead provide a button on the order complete page providing further customization steps.&#xD;
+&#xD;
+For Magestore extension, gift cards will have an additional wrapping option on the product page allowing for Delightfully Gift Wrap.</description>
+    <notes>Enhancements:&#xD;
+&#xD;
+&#xD;
+0.1.15:&#xD;
+Support for more configuration options: redemption url and gift description.&#xD;
+&#xD;
+0.1.13:&#xD;
+Removed exception printouts&#xD;
+&#xD;
+0.1.12:&#xD;
+Revised pricing definition via catalog product definition&#xD;
+&#xD;
+0.1.11:&#xD;
+Revised Pricing rules via getFinalPrice&#xD;
+&#xD;
+0.1.10:&#xD;
+Disable pricing rules&#xD;
+&#xD;
+0.1.9:&#xD;
+Re-factor and extended diagnostics&#xD;
+&#xD;
+0.1.8:&#xD;
+Removed changes to administrative view of gift cards (causing out-of-memory errors for large databases)&#xD;
+&#xD;
+0.1.7:&#xD;
+Fixed: removed more logging messages.&#xD;
+&#xD;
+0.1.6:&#xD;
+Fixed: removed some logging messages.&#xD;
+&#xD;
+0.1.5:&#xD;
+- Giftwrap price appears on product page&#xD;
+&#xD;
+0.1.4:&#xD;
+- admin view of delivery method&#xD;
+Fixed bug:&#xD;
+- delivery option displays as a numerical value instead of description on the Order Review screen&#xD;
+&#xD;
+0.1.3:&#xD;
+- Improved analytics&#xD;
+- Settable giftwrap price&#xD;
+</notes>
+    <authors><author><name>James Barabas</name><user>barabas</user><email>james@delightfully.com</email></author><author><name>Gina Luciano</name><user>luciano</user><email>gina@delightfully.com</email></author></authors>
+    <date>2013-10-16</date>
+    <time>16:46:04</time>
+    <contents><target name="magecommunity"><dir name="Delightfully"><dir name="WrappedGiftCard"><dir name="Block"><dir name="Adminhtml"><dir name="Giftvoucher"><file name="Grid.php" hash="22931bc99c1b75e0b23edc9ff9daad34"/></dir><file name="Giftvoucher.php" hash="7947f993d6f47bdacf6c7f4bd763ca1d"/></dir><dir name="Cart"><file name="Item.php" hash="69337ac581318192578b53a2f6b08744"/></dir><dir name="Multishipping"><file name="Wrappedgiftcard.php" hash="6c871fa8a0046004f7c273d1e7984922"/></dir><dir name="Product"><file name="View.php" hash="f6aac78ea76122b9f1aebc74c3b21316"/></dir><file name="Wrappedgiftcard.php" hash="dbab43e3439c6bf9408b7af1e9e275ce"/></dir><dir name="Helper"><file name="Data.php" hash="46b85a9851249058a8098541089ff5bd"/><dir name="Giftvoucher"><file name="Data.php" hash="a0952f29355b9f875a480d812d3c63df"/></dir></dir><dir name="Model"><dir name="Giftvoucher"><file name="Observer.php" hash="8d059ef7e544297485f7c1d65e4656f9"/><file name="Price.php" hash="91c0671a58191202ab16260b02d9b842"/></dir><file name="Giftvoucher.php" hash="7c1c1c526119aa6aff1145007b5b1cad"/><file name="Observer.php" hash="57eca4fba462f2a1920097cb9893bd9f"/><file name="WrappedGiftCard.php" hash="28874994e56683145ca1128e5abcacb5"/></dir><dir name="etc"><file name="config.xml" hash="90125e2b69599a0ded690dbe9ece60da"/><file name="system.xml" hash="149641a914a8a20ce4fcdfae69343b1f"/></dir></dir></dir></target><target name="magedesign"><dir name="frontend"><dir name="base"><dir name="default"><dir name="layout"><dir name="delightfully"><file name="wrappedgiftcard.xml" hash="233dec6948b965cae407031abd0e2257"/></dir></dir><dir name="template"><dir name="delightfully"><dir name="wrappedgiftcard"><dir name="multishipping"><file name="wrappedgiftcard.phtml" hash="242441a748d555fea04223993d2bfeac"/></dir><dir name="product"><file name="view.phtml" hash="f4457f0f408f4483fa350752521c9546"/></dir><file name="wrappedgiftcard.phtml" hash="e7d2e6bf73c410c1201832c9bbdf04d4"/></dir></dir></dir></dir></dir></dir><dir name="adminhtml"><dir name="default"><dir name="default"><dir name="layout"><dir name="delightfully"><file name="wrappedgiftcard.xml" hash="d7adabc1adc13c06b8a8d29ace554e3a"/></dir></dir></dir></dir></dir></target><target name="mageetc"><dir name="modules"><file name="Delightfully_WrappedGiftCard.xml" hash="9b39937f92837ea9acb84adf4c36cc06"/></dir></target><target name="mageskin"><dir name="frontend"><dir name="base"><dir name="default"><dir name="delightfully"><dir name="wrappedgiftcard"><dir name="css"><file name="wrappedgiftcard.css" hash="d41d8cd98f00b204e9800998ecf8427e"/></dir></dir></dir></dir></dir></dir></target></contents>
+    <compatible/>
+    <dependencies><required><php><min>5.2.0</min><max>6.0.0</max></php></required></dependencies>
+</package>

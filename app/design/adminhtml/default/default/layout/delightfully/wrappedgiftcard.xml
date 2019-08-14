@@ -1,0 +1,11 @@
+<?xml version="1.0"?>
+<layout version="0.1.0">
+    <giftvoucheradmin_adminhtml_giftvoucher_index>
+        <reference name="content">
+		<action method="unsetChild">
+			<name>giftvoucher</name>
+		</action>
+		<block type="delightfully_wrappedgiftcard/adminhtml_giftvoucher" name="giftvoucher" />
+        </reference>
+    </giftvoucheradmin_adminhtml_giftvoucher_index>    
+ </layout>
