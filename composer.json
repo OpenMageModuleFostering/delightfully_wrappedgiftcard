@@ -1,7 +1,7 @@
 {
-    "name": "OpenMageModuleFostering\/Delightfully_WrappedGiftCard",
+    "name": "openmage-module-fostering\/delightfully_wrappedgiftcard",
     "type": "magento-module",
-    "license": "OSL-v3.0",
+    "license": "OSL-3.0",
     "homepage": "",
     "description": "Add digital wrapping to gift cards using Delightfully",
     "authors": [
